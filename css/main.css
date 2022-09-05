@@ -1,0 +1,125 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+
+/*Overrides everything before we star*/
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    background-color: #24252A;
+}
+
+li, a {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    color: #ecf0f1;
+    text-decoration: none;
+
+}
+
+/*container for flex-items: <h1>,<nav>, and button. All links inside nav will be grouped together*/
+header {
+    display: flex;
+    justify-content: space-between; /*Along the main-axis (default horizontal), all items are spaced between */
+    align-items:center; /*Along the cross axis (default vertical), in the center. Ensures - the smaller buttons and links will be center along the larger banner.*/
+    padding: 30px 10%; /*the container box is separated from the edge-top and sides.*/
+}
+
+.logo{
+    cursor:pointer;
+}
+/*nav_link is an unordered list <ul></ul>.*/
+.nav_links{
+    list-style: none; /*Removes bullet point. alt .nav_links li {list-style:none} also works*/
+}
+
+/*the individual list items<li></li>*/
+.nav_links li {
+    display:inline-block; /*display list items horizontally instead of vertically - like texts. alt. for the li container, use .navlinks{display:flex} also make items horizontal*/
+    padding: 0px 20px;
+}
+
+/*The animation for hover is eased*/
+.nav_links li a{
+    transition: all .3s ease 0s;
+}
+
+/*When link is hovered, the text changes color   li:hover also works*/
+.nav_links li a:hover{
+    color: #0088a9
+}
+
+button{
+    padding: 9px 25px;
+    background-color: rgba(0,136,169,1);
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;    /*The cursor becomes a finger pointer when hovering*/
+    transition: all .3s ease 0%;
+}
+
+/*When hovered over- the button becomes more transparent- black because the button  is more black*/
+button:hover{
+    background-color: rgba(0,136,169,0.8);
+}
+
+.toggle-button{
+    /*Absolute- element is removed from the normal document
+     flow, and no space is created for the element in the 
+     page layout. It is positioned relative to its closest 
+     positioned ancestor*/
+    position: absolute;
+    top: .75rem;
+    right: 1rem;
+
+    /*By default, aka computer monitor size, the button disappear*/
+    /*When is phone size, display:flex; and the spans will be stacked vertically*/
+    display: none;
+    /*The spans are stacked vertically*/
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;   
+}
+
+/*Individual spans - not the group container*/
+.toggle-button .bar{
+    /*By default, spans are invisible. This makes them visible*/
+    height: 3px;
+    width: 100%;
+    background-color: white;
+    border-radius: 10px;
+}
+
+/*media query can also be in css and not html*/
+@media (max-width: 800px){
+    .toggle-button{
+        display: flex;
+    }
+    .navbar{
+        display:none;
+    }
+
+    /*container for flex-items: <h1>,<nav>, and button. All links inside nav will be grouped together*/
+    header {
+        /*before we set it to display:flex; We update to make the logo, nav list, and button in a column*/
+        flex-direction: column;
+        /*The cross axis is horizontal, we push it to the left.*/
+        align-items: flex-start;
+        
+    }
+    /*To make the list items in <li> also vertical, we have to change that container*/
+    /*Why not just .navbar? I think navbar only has one flex-items which is ul. We need the <li>'s container*/
+    .navbar ul{
+        width: 100%;
+        flex-direction: column;
+
+    }
+    /*The texts of the <li> are now the center of the item*/
+    .nav_links li{
+        text-align: center;
+    }
+
+
+
+}

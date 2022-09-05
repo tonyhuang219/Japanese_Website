@@ -5,18 +5,27 @@
 	<meta charset= "utf-8" />
 <title>Sleep Tight</title>
 <meta name="viewport" content="width=device-width" />
+<!--
 <link rel="stylesheet" href="css/mobile.css" media="screen and (max-width:480px)"/>
 <link rel="stylesheet" href="css/tablet.css" media="screen and  (min-width:481px) and (max-width: 768px)"/>
-<link rel="stylesheet" href="css/main.css" media="screen and  (min-width:769px)"/> <!--desktop-->
+<link rel="stylesheet" href="css/main.css" media="screen and  (min-width:769px)"/> desktop-->
+
+<link rel="stylesheet" href="css/main.css" /> <!--desktop-->
+
 <link rel = "icon" href= "images/moon.png">
 <script src = 'java.js'></script>
 </head>
 <body>
 	<header>
-		<h1 class="banner">Sleep Tight</h1>
+		<h1 class="logo">Sleep Tight</h1>
+		<a href = "#" class = "toggle-button"> <!--Creates the burger button-->
+			<span class="bar"></span>
+			<span class="bar"></span>
+			<span class="bar"></span>
+		</a>
 		<nav>
 			<div class ="navbar">
-				<ul>
+				<ul class = "nav_links">
                     <li><a href ="index.html" class = "current">News and Guide- remote worker</a></li>
                     <li><a href ="destination.html">Destinations</a></li>
                     <li><a href="todo.html">Things To Do</a></li>
@@ -25,7 +34,8 @@
                     <li><a href="aboutUs.html">About Us</a></li>
                 </ul>
             </div>
-				</nav>
+		</nav>
+		<a class="cta" href="#"><button>Contact</button> </a> <!--Links need to be around the button to make it a link-->
 	</header>
 	<main>
 		<section class="main_section">
