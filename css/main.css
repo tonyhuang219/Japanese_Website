@@ -8,6 +8,9 @@
     background-color: #24252A;
 }
 
+/*!!Things to look out for. Typing "display:flex; justify-content:space-around;" in a flex container won't do anything if that flex container is too small. Also specify width=30% or width=100%*/
+/*!!If possible remove stuff. Remove some of the classes- having class "navbar" and "navlink" is pointless because they surround the same items and can lead to confusion when overriding css.*/
+/*Draw an html tree with classes and ids to keep track of everything. Css inheritance won't screw you up. Use the developer tool to help check*/
 li, a {
     font-family: "Montserrat", sans-serif;
     font-weight: 500;
@@ -33,10 +36,14 @@ header {
     list-style: none; /*Removes bullet point. alt .nav_links li {list-style:none} also works*/
 }
 
+.navbar ul {
+    display:flex
+} 
+
 /*the individual list items<li></li>*/
 .nav_links li {
-    display:inline-block; /*display list items horizontally instead of vertically - like texts. alt. for the li container, use .navlinks{display:flex} also make items horizontal*/
-    padding: 0px 20px;
+    /*display:inline-block; display list items horizontally instead of vertically - like texts. alt. for the li container, use .navlinks or .navbar ul{display:flex} also make items horizontal*/     
+    padding: 0px 20px;   /*This will be inherited by the @media tablet. Must override there*/
 }
 
 /*The animation for hover is eased*/
@@ -98,6 +105,7 @@ button:hover{
     }
     .navbar{
         display:none;
+        width:100%
     }
 
     /*container for flex-items: <h1>,<nav>, and button. All links inside nav will be grouped together*/
@@ -110,16 +118,29 @@ button:hover{
     }
     /*To make the list items in <li> also vertical, we have to change that container*/
     /*Why not just .navbar? I think navbar only has one flex-items which is ul. We need the <li>'s container*/
+    /*.navbar ul{flex-direction: column;} doesn't work because it was previously .nav_links li {display:inline-blocks; that takes precendence because .nav_links li is child}*/
     .navbar ul{
         width: 100%;
-        flex-direction: column;
+        flex-direction: column; /*!! Not activating- the list items in the flex container is not vertical.  Why? Possible because it was block inlin*/
 
     }
     /*The texts of the <li> are now the center of the item*/
     .nav_links li{
-        text-align: center;
+        /* text-align: center; */
+        padding: 0px 0px;
     }
 
+    .nav_links li a{
+        /*padding: .5rem 1rem; For some reason, this causes the text to overlap each othe https://stackoverflow.com/questions/2189452/when-to-use-margin-vs-padding-in-cssr*/
+        /*https://www.reddit.com/r/learnprogramming/comments/43fral/why_is_css_so_frustrating/*/
+        margin: .5rem 0rem;
+    }
+
+    /*When the hamburger button is pressed, the display will go from none to flex -overrides .navbar*/
+    /*.nav_links.active{display: flex} doesn't work because it was previously .navbar{display:none;}*/
+    .navbar.active{
+        display: flex;
+    }
 
 
 }

@@ -5,6 +5,8 @@
 	<meta charset= "utf-8" />
 <title>Sleep Tight</title>
 <meta name="viewport" content="width=device-width" />
+<script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+<script src = 'js/script.js' defer></script>
 <!--
 <link rel="stylesheet" href="css/mobile.css" media="screen and (max-width:480px)"/>
 <link rel="stylesheet" href="css/tablet.css" media="screen and  (min-width:481px) and (max-width: 768px)"/>
@@ -13,18 +15,18 @@
 <link rel="stylesheet" href="css/main.css" /> <!--desktop-->
 
 <link rel = "icon" href= "images/moon.png">
-<script src = 'java.js'></script>
+
 </head>
 <body>
 	<header>
 		<h1 class="logo">Sleep Tight</h1>
-		<a href = "#" class = "toggle-button"> <!--Creates the burger button-->
+		<a href = "#" class = "toggle-button" id="toggle-button"> <!--Creates the burger button-->
 			<span class="bar"></span>
 			<span class="bar"></span>
 			<span class="bar"></span>
 		</a>
 		<nav>
-			<div class ="navbar">
+			<div class ="navbar" id = "nav_links">
 				<ul class = "nav_links">
                     <li><a href ="index.html" class = "current">News and Guide- remote worker</a></li>
                     <li><a href ="destination.html">Destinations</a></li>
@@ -40,7 +42,7 @@
 	<main>
 		<section class="main_section">
 			<article id="main">
-				<h2 class="heading" id ="line"> What is remote traveling?</h2>
+				<h2 class="heading" id ="test"> What is remote traveling?</h2>
                 <h2 class="heading" id ="line"> How to survive on $5/day?</h2>
                 <h2 class="heading" id ="line"> Finding a remote job?</h2>
 				<h2 class="heading" id ="line"> Crashing with a friend</h2>
